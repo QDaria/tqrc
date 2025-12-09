@@ -24,7 +24,7 @@
 
 This paper establishes **fundamental no-go results** for Topological Quantum Reservoir Computing (TQRC) using Fibonacci anyons. While topological quantum computing offers inherent fault tolerance through non-Abelian anyonic braiding, we demonstrate that this very protection mechanism creates an **irreconcilable tension** with the Echo State Property (ESP) essential for reservoir computing.
 
-Our rigorous mathematical analysis proves that the unitary nature of topological quantum evolution fundamentally prevents the asymptotic state convergence required for reservoir computing—a result with significant implications for the intersection of topological quantum computing and neuromorphic machine learning.
+Our rigorous mathematical analysis proves that the unitary nature of topological quantum evolution fundamentally prevents the asymptotic state convergence required for reservoir computing, a result with significant implications for the intersection of topological quantum computing and neuromorphic machine learning.
 
 ---
 
@@ -50,7 +50,7 @@ Our rigorous mathematical analysis proves that the unitary nature of topological
 </p>
 
 <p align="center"><i>
-<b>Figure 1: The Fundamental Tension.</b> Unitary quantum evolution preserves information (||U†U|| = 1), while the Echo State Property requires asymptotic forgetting of initial conditions. This incompatibility is mathematical, not engineering—it cannot be circumvented.
+<b>Figure 1: The Fundamental Tension.</b> Unitary quantum evolution preserves information (||U†U|| = 1), while the Echo State Property requires asymptotic forgetting of initial conditions. This incompatibility is mathematical, not engineering; it cannot be circumvented.
 </i></p>
 
 ---
@@ -74,7 +74,7 @@ Our rigorous mathematical analysis proves that the unitary nature of topological
 </p>
 
 <p align="center"><i>
-<b>Figure 3: Echo State Property Violation.</b> Numerical simulations demonstrate that initial state differences persist indefinitely in TQRC systems. Unlike classical reservoirs where trajectories converge, quantum unitarity preserves distinguishability—direct evidence of the no-go theorem.
+<b>Figure 3: Echo State Property Violation.</b> Numerical simulations demonstrate that initial state differences persist indefinitely in TQRC systems. Unlike classical reservoirs where trajectories converge, quantum unitarity preserves distinguishability, providing direct evidence of the no-go theorem.
 </i></p>
 
 ---
@@ -134,7 +134,7 @@ Our rigorous mathematical analysis proves that the unitary nature of topological
 </p>
 
 <p align="center"><i>
-<b>Figure 8: Anyon Braiding Worldlines.</b> Braiding operations on Fibonacci anyons implement unitary transformations in the fusion space. The topological nature means small perturbations do not affect the computation—but also that information cannot be erased.
+<b>Figure 8: Anyon Braiding Worldlines.</b> Braiding operations on Fibonacci anyons implement unitary transformations in the fusion space. The topological nature means small perturbations do not affect the computation, but also that information cannot be erased.
 </i></p>
 
 ---
@@ -334,5 +334,5 @@ You are free to share and adapt this material for any purpose, provided you give
 ---
 
 <p align="center">
-  <b>QDaria</b> — Advancing Quantum Computing Research
+  <b>QDaria</b>
 </p>
