@@ -11,7 +11,7 @@
 
 **Daniel Mo Houshmand**
 QDaria, Oslo, Norway
-📧 mo@qdaria.com
+mo@qdaria.com
 
 ---
 
@@ -23,53 +23,133 @@ This paper establishes **fundamental no-go results** for Topological Quantum Res
 
 ## Key Figures
 
-### System Architecture
+### Fig. 1: TQRC Architecture
 <p align="center">
-<img src="figures/fig01_architecture.png" width="600" alt="TQRC Architecture">
+<img src="figures/fig_tqrc_architecture_pro.png" width="700" alt="TQRC Architecture">
 </p>
 
-*Figure 1: Topological Quantum Reservoir Computing architecture showing input encoding, Fibonacci anyon braiding reservoir, and measurement-based readout.*
+*Complete TQRC system architecture: input encoding via anyon creation, braiding-based reservoir dynamics, and projective measurement readout.*
 
-### The Fundamental Tension
+---
+
+### Fig. 2: Fibonacci Anyon Fusion Trees
 <p align="center">
-<img src="figures/fig04_tension.png" width="600" alt="Unitarity-ESP Tension">
+<img src="figures/fig_fusion_trees.png" width="650" alt="Fusion Trees">
 </p>
 
-*Figure 2: The fundamental tension between unitary quantum evolution (which preserves information) and the Echo State Property (which requires information decay).*
+*Fibonacci anyon fusion trees showing the τ × τ = 1 + τ fusion rule and resulting Hilbert space structure.*
 
-### ESP Violation Analysis
+---
+
+### Fig. 3: The Fundamental Unitarity-ESP Tension
 <p align="center">
-<img src="figures/fig05_esp_violation.png" width="600" alt="ESP Violation">
+<img src="figures/fig_unitarity_esp_tension.png" width="700" alt="Unitarity-ESP Tension">
 </p>
 
-*Figure 3: Numerical demonstration of ESP violation in Fibonacci anyonic systems. Initial state dependence persists indefinitely.*
+*The core incompatibility: unitary quantum evolution preserves information (‖U†U‖ = 1), while ESP requires asymptotic forgetting. This tension is fundamental and cannot be engineered away.*
 
-### Memory-Computation Tradeoff
+---
+
+### Fig. 4: ESP Violation Analysis
 <p align="center">
-<img src="figures/fig11_tradeoff.png" width="600" alt="Memory-Computation Tradeoff">
+<img src="figures/fig05_esp_violation.png" width="650" alt="ESP Violation">
 </p>
 
-*Figure 4: The fundamental tradeoff between topological protection (enabling fault tolerance) and fading memory (required for reservoir computing).*
+*Numerical demonstration of ESP violation. Initial state differences persist indefinitely rather than decaying—direct evidence of the no-go theorem.*
+
+---
+
+### Fig. 5: Dissipative Channel Results
+<p align="center">
+<img src="figures/fig06_dissipative_results.png" width="650" alt="Dissipative Results">
+</p>
+
+*Analysis of dissipative modifications: while decoherence can induce ESP-like behavior, it simultaneously destroys the topological protection that motivates TQRC.*
+
+---
+
+### Fig. 6: Root Cause Analysis
+<p align="center">
+<img src="figures/fig07_root_cause.png" width="650" alt="Root Cause">
+</p>
+
+*Tracing the no-go result to its mathematical origins: the spectral properties of unitary operators fundamentally preclude contractive dynamics.*
+
+---
+
+### Fig. 7: Memory Capacity Scaling
+<p align="center">
+<img src="figures/fig10_memory_scaling.png" width="650" alt="Memory Scaling">
+</p>
+
+*Memory capacity bounds: MC ≤ N log₂(φ) for N-anyon systems, showing sublinear scaling with system size.*
+
+---
+
+### Fig. 8: Protection vs. Fading Memory Tradeoff
+<p align="center">
+<img src="figures/fig11_tradeoff.png" width="650" alt="Tradeoff">
+</p>
+
+*The fundamental tradeoff: topological protection (beneficial for fault tolerance) directly conflicts with fading memory (required for reservoir computing).*
+
+---
+
+### Fig. 9: Braiding Position Encoding
+<p align="center">
+<img src="figures/fig15_braiding_position.png" width="650" alt="Braiding Position">
+</p>
+
+*Anyon worldlines and braiding operations that implement computational gates in the fusion space.*
+
+---
+
+### Fig. 10: Open Problems and Future Directions
+<p align="center">
+<img src="figures/fig12_open_problems.png" width="650" alt="Open Problems">
+</p>
+
+*Research directions emerging from the no-go theorem: hybrid architectures, alternative anyon models, and modified reservoir paradigms.*
+
+---
+
+### Fig. 11: Summary of Results
+<p align="center">
+<img src="figures/fig14_summary_table.png" width="700" alt="Summary Table">
+</p>
+
+*Comprehensive comparison of classical RC requirements versus TQRC behavior across all key properties.*
+
+---
+
+### Fig. 12: Key Takeaways
+<p align="center">
+<img src="figures/fig16_takeaways.png" width="700" alt="Key Takeaways">
+</p>
+
+*The essential conclusions: what works, what doesn't, and why it matters for the field.*
 
 ---
 
 ## Main Results
 
 ### No-Go Theorem (Theorem 1)
+
 > **Fibonacci anyonic systems cannot satisfy the Echo State Property.**
 
-The unitary nature of quantum evolution fundamentally prevents asymptotic state convergence required for ESP.
+The unitary nature of quantum evolution fundamentally prevents the asymptotic state convergence required for ESP.
 
 ### Key Findings
 
-| Property | Classical RC Requirement | TQRC Behavior | Implication |
-|----------|-------------------------|---------------|-------------|
-| **Echo State Property** | Asymptotic convergence | ❌ Violated | No input-forgetting |
-| **Fading Memory** | Exponential decay | ❌ Absent | Infinite memory |
+| Property | Classical RC | TQRC Behavior | Implication |
+|----------|--------------|---------------|-------------|
+| **Echo State Property** | Asymptotic convergence | Violated | No input-forgetting |
+| **Fading Memory** | Exponential decay | Absent | Infinite memory |
 | **Lyapunov Exponent** | λ < 0 (contractive) | λ ≈ 0.007 | Marginal stability |
 | **Spectral Radius** | ρ < 1 | ρ = 1 | Unitary preservation |
 
 ### Memory Capacity Theorem (Theorem 2)
+
 For an N-anyon Fibonacci system:
 
 $$MC \leq N \log_2(\varphi)$$
@@ -88,8 +168,8 @@ where φ = (1+√5)/2 is the golden ratio.
 ### Why the No-Go Result Matters
 
 1. **Unitarity-ESP Incompatibility**: Quantum mechanics preserves information; ESP requires forgetting
-2. **Topological Memory Prevents Fading Memory**: The robust protection that enables fault tolerance *actively preserves* information indefinitely
-3. **Fundamental, Not Technical**: This is not an engineering limitation—it's a mathematical impossibility
+2. **Topological Memory Prevents Fading Memory**: The robust protection enabling fault tolerance *actively preserves* information indefinitely
+3. **Fundamental, Not Technical**: This is not an engineering limitation—it is a mathematical impossibility
 
 ---
 
@@ -97,8 +177,8 @@ where φ = (1+√5)/2 is the golden ratio.
 
 | Format | Pages | File | Status |
 |--------|-------|------|--------|
-| IEEE Transactions | 10 | `tqrc_ieee.tex` | ✅ Ready |
-| ACM Computing Surveys | 11 | `tqrc_acm.tex` | ✅ Ready |
+| IEEE Transactions | 10 | `tqrc_ieee.tex` | Ready |
+| ACM Computing Surveys | 11 | `tqrc_acm.tex` | Ready |
 
 ---
 
@@ -128,14 +208,20 @@ tqrc/
 ├── tqrc_ieee.tex            # IEEE format paper
 ├── tqrc_acm.tex             # ACM format paper
 ├── tqrc_references.bib      # Bibliography (50+ references)
-├── figures/                 # All figures
-│   ├── fig01_architecture.png
-│   ├── fig04_tension.png
-│   ├── fig05_esp_violation.png
-│   ├── fig11_tradeoff.png
-│   ├── tikz_figures.tex     # TikZ source
-│   └── ...
-└── .gitignore
+└── figures/
+    ├── fig_tqrc_architecture_pro.png
+    ├── fig_fusion_trees.png
+    ├── fig_unitarity_esp_tension.png
+    ├── fig05_esp_violation.png
+    ├── fig06_dissipative_results.png
+    ├── fig07_root_cause.png
+    ├── fig10_memory_scaling.png
+    ├── fig11_tradeoff.png
+    ├── fig12_open_problems.png
+    ├── fig14_summary_table.png
+    ├── fig15_braiding_position.png
+    ├── fig16_takeaways.png
+    └── tikz_figures.tex     # TikZ source
 ```
 
 ---
@@ -156,7 +242,7 @@ tqrc/
 
 ## Related Work
 
-This paper builds on and extends recent advances in:
+This paper builds on recent advances in:
 
 - **Topological Quantum Computing**: Nayak et al. (2008), Kitaev (2003)
 - **Fibonacci Anyon Experiments**: Xu et al. (Nature Physics, 2024), Iqbal et al. (Nature, 2024)
@@ -172,5 +258,5 @@ This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/
 ---
 
 <p align="center">
-<b>$\mathbb{Q}|\mathcal{D}\partial\mathfrak{r}\imath\alpha\rangle$</b> — QDaria
+<b>QDaria</b>
 </p>
