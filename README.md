@@ -7,10 +7,9 @@
 <h3 align="center">Fundamental Limitations of TQRC: A No-Go Theorem for Fibonacci Anyonic Systems</h3>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2025.XXXXX"><img src="https://img.shields.io/badge/arXiv-2025.XXXXX-b31b1b.svg" alt="arXiv"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python"></a>
-  <a href="https://github.com/QDaria/tqrc"><img src="https://img.shields.io/badge/Code-Reproducible-green.svg" alt="Reproducible"></a>
+  <a href="https://github.com/QDaria/tqrc"><img src="https://img.shields.io/badge/Code-Open%20Source-green.svg" alt="Open Source"></a>
 </p>
 
 <p align="center">
@@ -288,9 +287,9 @@ pdflatex tqrc_acm.tex
   title     = {Fundamental Limitations of Topological Quantum Reservoir
                Computing: A No-Go Theorem for Fibonacci Anyonic Systems},
   author    = {Houshmand, Daniel Mo},
-  journal   = {arXiv preprint arXiv:2025.XXXXX},
   year      = {2025},
-  url       = {https://github.com/QDaria/tqrc}
+  url       = {https://github.com/QDaria/tqrc},
+  note      = {Preprint}
 }
 ```
 
