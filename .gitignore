@@ -1,0 +1,26 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# PDF output (keep source, build locally)
+# Uncomment if you want to track PDFs:
+# !*.pdf
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*~
