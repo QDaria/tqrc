@@ -1,17 +1,23 @@
-# TQRC: Topological Quantum Reservoir Computing
+<p align="center">
+  <img src="figures/fig_tqrc_architecture_pro.png" width="800" alt="TQRC Architecture">
+</p>
 
-## Fundamental Limitations of Topological Quantum Reservoir Computing: A No-Go Theorem for Fibonacci Anyonic Systems
+<h1 align="center">Topological Quantum Reservoir Computing</h1>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2025.XXXXX-b31b1b.svg)](https://arxiv.org/)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+<h3 align="center">Fundamental Limitations of TQRC: A No-Go Theorem for Fibonacci Anyonic Systems</h3>
 
----
+<p align="center">
+  <a href="https://arxiv.org/abs/2025.XXXXX"><img src="https://img.shields.io/badge/arXiv-2025.XXXXX-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python"></a>
+  <a href="https://github.com/QDaria/tqrc"><img src="https://img.shields.io/badge/Code-Reproducible-green.svg" alt="Reproducible"></a>
+</p>
 
-## Author
-
-**Daniel Mo Houshmand**
-QDaria, Oslo, Norway
-mo@qdaria.com
+<p align="center">
+  <b>Daniel Mo Houshmand</b><br>
+  <a href="https://qdaria.com">QDaria</a> · Oslo, Norway<br>
+  <a href="mailto:mo@qdaria.com">mo@qdaria.com</a>
+</p>
 
 ---
 
@@ -19,173 +25,248 @@ mo@qdaria.com
 
 This paper establishes **fundamental no-go results** for Topological Quantum Reservoir Computing (TQRC) using Fibonacci anyons. While topological quantum computing offers inherent fault tolerance through non-Abelian anyonic braiding, we demonstrate that this very protection mechanism creates an **irreconcilable tension** with the Echo State Property (ESP) essential for reservoir computing.
 
+Our rigorous mathematical analysis proves that the unitary nature of topological quantum evolution fundamentally prevents the asymptotic state convergence required for reservoir computing—a result with significant implications for the intersection of topological quantum computing and neuromorphic machine learning.
+
+---
+
+## Highlights
+
+| | Finding | Significance |
+|:---:|:---|:---|
+| 🔴 | **No-Go Theorem** | Fibonacci anyonic systems *cannot* satisfy the Echo State Property |
+| 🔴 | **Unitarity-ESP Incompatibility** | Quantum mechanics preserves information; ESP requires forgetting |
+| 🔴 | **Topological Memory Conflict** | Fault-tolerant protection *actively prevents* fading memory |
+| 🟡 | **Memory Capacity Bound** | MC ≤ N log₂(φ) for N-anyon systems |
+| 🟡 | **Lyapunov Analysis** | λ ≈ 0.007 confirms marginal (not contractive) stability |
+| 🟢 | **Future Directions** | Hybrid architectures and alternative paradigms identified |
+
 ---
 
 ## Key Figures
 
-### Fig. 1: TQRC Architecture
+### The Core Problem: Unitarity vs. Echo State Property
+
 <p align="center">
-<img src="figures/fig_tqrc_architecture_pro.png" width="700" alt="TQRC Architecture">
+<img src="figures/fig_unitarity_esp_tension.png" width="750" alt="Unitarity-ESP Tension">
 </p>
 
-*Complete TQRC system architecture: input encoding via anyon creation, braiding-based reservoir dynamics, and projective measurement readout.*
+<p align="center"><i>
+<b>Figure 1: The Fundamental Tension.</b> Unitary quantum evolution preserves information (||U†U|| = 1), while the Echo State Property requires asymptotic forgetting of initial conditions. This incompatibility is mathematical, not engineering—it cannot be circumvented.
+</i></p>
 
 ---
 
-### Fig. 2: Fibonacci Anyon Fusion Trees
+### Fibonacci Anyon Fusion Structure
+
 <p align="center">
-<img src="figures/fig_fusion_trees.png" width="650" alt="Fusion Trees">
+<img src="figures/fig_fusion_trees.png" width="700" alt="Fusion Trees">
 </p>
 
-*Fibonacci anyon fusion trees showing the τ × τ = 1 + τ fusion rule and resulting Hilbert space structure.*
+<p align="center"><i>
+<b>Figure 2: Fibonacci Anyon Fusion Trees.</b> The fusion rule τ × τ = 1 + τ generates a Hilbert space of dimension Fib(N+1) for N anyons. Braiding operations act unitarily on this space, implementing topologically protected quantum gates.
+</i></p>
 
 ---
 
-### Fig. 3: The Fundamental Unitarity-ESP Tension
+### ESP Violation: Numerical Evidence
+
 <p align="center">
-<img src="figures/fig_unitarity_esp_tension.png" width="700" alt="Unitarity-ESP Tension">
+<img src="figures/fig05_esp_violation.png" width="700" alt="ESP Violation">
 </p>
 
-*The core incompatibility: unitary quantum evolution preserves information (‖U†U‖ = 1), while ESP requires asymptotic forgetting. This tension is fundamental and cannot be engineered away.*
+<p align="center"><i>
+<b>Figure 3: Echo State Property Violation.</b> Numerical simulations demonstrate that initial state differences persist indefinitely in TQRC systems. Unlike classical reservoirs where trajectories converge, quantum unitarity preserves distinguishability—direct evidence of the no-go theorem.
+</i></p>
 
 ---
 
-### Fig. 4: ESP Violation Analysis
+### Dissipation: A Double-Edged Sword
+
 <p align="center">
-<img src="figures/fig05_esp_violation.png" width="650" alt="ESP Violation">
+<img src="figures/fig06_dissipative_results.png" width="700" alt="Dissipative Results">
 </p>
 
-*Numerical demonstration of ESP violation. Initial state differences persist indefinitely rather than decaying—direct evidence of the no-go theorem.*
+<p align="center"><i>
+<b>Figure 4: Dissipative Channel Analysis.</b> While environmental decoherence can induce ESP-like behavior, it simultaneously destroys the topological protection that motivates TQRC. The cure eliminates the advantage.
+</i></p>
 
 ---
 
-### Fig. 5: Dissipative Channel Results
+### Root Cause Analysis
+
 <p align="center">
-<img src="figures/fig06_dissipative_results.png" width="650" alt="Dissipative Results">
+<img src="figures/fig07_root_cause.png" width="700" alt="Root Cause">
 </p>
 
-*Analysis of dissipative modifications: while decoherence can induce ESP-like behavior, it simultaneously destroys the topological protection that motivates TQRC.*
+<p align="center"><i>
+<b>Figure 5: Mathematical Origins.</b> The no-go result traces to spectral properties of unitary operators: all eigenvalues lie on the unit circle (|λ| = 1), precluding the contractive dynamics (|λ| < 1) required for ESP.
+</i></p>
 
 ---
 
-### Fig. 6: Root Cause Analysis
+### Memory Capacity Scaling
+
 <p align="center">
-<img src="figures/fig07_root_cause.png" width="650" alt="Root Cause">
+<img src="figures/fig10_memory_scaling.png" width="700" alt="Memory Scaling">
 </p>
 
-*Tracing the no-go result to its mathematical origins: the spectral properties of unitary operators fundamentally preclude contractive dynamics.*
+<p align="center"><i>
+<b>Figure 6: Memory Capacity Bounds.</b> Theoretical upper bound MC ≤ N log₂(φ) for N-anyon systems, confirmed by numerical simulations. The golden ratio φ = (1+√5)/2 appears due to the Fibonacci fusion structure.
+</i></p>
 
 ---
 
-### Fig. 7: Memory Capacity Scaling
+### The Fundamental Tradeoff
+
 <p align="center">
-<img src="figures/fig10_memory_scaling.png" width="650" alt="Memory Scaling">
+<img src="figures/fig11_tradeoff.png" width="700" alt="Tradeoff">
 </p>
 
-*Memory capacity bounds: MC ≤ N log₂(φ) for N-anyon systems, showing sublinear scaling with system size.*
+<p align="center"><i>
+<b>Figure 7: Protection vs. Fading Memory.</b> The topological protection enabling fault-tolerant quantum computation directly conflicts with the fading memory required for reservoir computing. This is a fundamental tradeoff, not a parameter to optimize.
+</i></p>
 
 ---
 
-### Fig. 8: Protection vs. Fading Memory Tradeoff
+### Braiding Operations
+
 <p align="center">
-<img src="figures/fig11_tradeoff.png" width="650" alt="Tradeoff">
+<img src="figures/fig15_braiding_position.png" width="700" alt="Braiding Position">
 </p>
 
-*The fundamental tradeoff: topological protection (beneficial for fault tolerance) directly conflicts with fading memory (required for reservoir computing).*
+<p align="center"><i>
+<b>Figure 8: Anyon Braiding Worldlines.</b> Braiding operations on Fibonacci anyons implement unitary transformations in the fusion space. The topological nature means small perturbations do not affect the computation—but also that information cannot be erased.
+</i></p>
 
 ---
 
-### Fig. 9: Braiding Position Encoding
+### Open Problems
+
 <p align="center">
-<img src="figures/fig15_braiding_position.png" width="650" alt="Braiding Position">
+<img src="figures/fig12_open_problems.png" width="700" alt="Open Problems">
 </p>
 
-*Anyon worldlines and braiding operations that implement computational gates in the fusion space.*
+<p align="center"><i>
+<b>Figure 9: Future Research Directions.</b> The no-go theorem opens new questions: Can hybrid classical-quantum architectures bypass the limitation? Do other anyon models (Ising, SU(2)_k) face similar constraints? What modified reservoir paradigms might succeed?
+</i></p>
 
 ---
 
-### Fig. 10: Open Problems and Future Directions
+### Summary of Results
+
 <p align="center">
-<img src="figures/fig12_open_problems.png" width="650" alt="Open Problems">
+<img src="figures/fig14_summary_table.png" width="750" alt="Summary Table">
 </p>
 
-*Research directions emerging from the no-go theorem: hybrid architectures, alternative anyon models, and modified reservoir paradigms.*
+<p align="center"><i>
+<b>Figure 10: Comprehensive Comparison.</b> Side-by-side analysis of classical reservoir computing requirements versus TQRC behavior across all key properties.
+</i></p>
 
 ---
 
-### Fig. 11: Summary of Results
+### Key Takeaways
+
 <p align="center">
-<img src="figures/fig14_summary_table.png" width="700" alt="Summary Table">
+<img src="figures/fig16_takeaways.png" width="750" alt="Key Takeaways">
 </p>
 
-*Comprehensive comparison of classical RC requirements versus TQRC behavior across all key properties.*
+<p align="center"><i>
+<b>Figure 11: Essential Conclusions.</b> What works, what doesn't, and why it matters for the future of quantum machine learning.
+</i></p>
 
 ---
 
-### Fig. 12: Key Takeaways
-<p align="center">
-<img src="figures/fig16_takeaways.png" width="700" alt="Key Takeaways">
-</p>
+## Mathematical Framework
 
-*The essential conclusions: what works, what doesn't, and why it matters for the field.*
+### Fibonacci Anyons
 
----
+Fibonacci anyons are non-Abelian anyons with:
 
-## Main Results
+- **Fusion rule**: τ × τ = 1 + τ (the defining property)
+- **Quantum dimension**: d_τ = φ = (1+√5)/2 ≈ 1.618 (golden ratio)
+- **Hilbert space dimension**: dim(H_N) = Fib(N+1) for N anyons
+- **Braiding**: Generates a dense subgroup of SU(2), enabling universal quantum computation
 
-### No-Go Theorem (Theorem 1)
+### The No-Go Theorem
 
-> **Fibonacci anyonic systems cannot satisfy the Echo State Property.**
+**Theorem 1 (ESP Impossibility).** *Let R be a Fibonacci anyonic reservoir with unitary braiding dynamics U. Then R cannot satisfy the Echo State Property.*
 
-The unitary nature of quantum evolution fundamentally prevents the asymptotic state convergence required for ESP.
+*Proof sketch:* The ESP requires that for any two initial states ρ₀, ρ₀':
 
-### Key Findings
+$$\lim_{t \to \infty} \| \rho_t - \rho'_t \| = 0$$
 
-| Property | Classical RC | TQRC Behavior | Implication |
-|----------|--------------|---------------|-------------|
-| **Echo State Property** | Asymptotic convergence | Violated | No input-forgetting |
-| **Fading Memory** | Exponential decay | Absent | Infinite memory |
-| **Lyapunov Exponent** | λ < 0 (contractive) | λ ≈ 0.007 | Marginal stability |
-| **Spectral Radius** | ρ < 1 | ρ = 1 | Unitary preservation |
+However, unitary evolution preserves the trace distance:
 
-### Memory Capacity Theorem (Theorem 2)
+$$\| U\rho U^\dagger - U\rho' U^\dagger \| = \| \rho - \rho' \|$$
 
-For an N-anyon Fibonacci system:
+Therefore initial state differences persist indefinitely. ∎
+
+### Memory Capacity Bound
+
+**Theorem 2 (Memory Capacity).** *For an N-anyon Fibonacci system, the memory capacity is bounded by:*
 
 $$MC \leq N \log_2(\varphi)$$
 
-where φ = (1+√5)/2 is the golden ratio.
+*where φ is the golden ratio.*
 
 ---
 
-## Theoretical Framework
+## Reproducibility
 
-### Fibonacci Anyons
-- **Fusion rule**: τ × τ = 1 + τ
-- **Quantum dimension**: d_τ = φ (golden ratio)
-- **Braiding matrices**: Generate dense subgroup of SU(2)
+### Quick Start
 
-### Why the No-Go Result Matters
+```bash
+# Clone the repository
+git clone https://github.com/QDaria/tqrc.git
+cd tqrc
 
-1. **Unitarity-ESP Incompatibility**: Quantum mechanics preserves information; ESP requires forgetting
-2. **Topological Memory Prevents Fading Memory**: The robust protection enabling fault tolerance *actively preserves* information indefinitely
-3. **Fundamental, Not Technical**: This is not an engineering limitation—it is a mathematical impossibility
+# Install dependencies
+pip install -r requirements.txt
 
----
+# Run verification
+python src/01_numerical_verification.py
+```
 
-## Paper Versions
+### Repository Structure
 
-| Format | Pages | File | Status |
-|--------|-------|------|--------|
-| IEEE Transactions | 10 | `tqrc_ieee.tex` | Ready |
-| ACM Computing Surveys | 11 | `tqrc_acm.tex` | Ready |
+```
+tqrc/
+├── README.md                    # This file
+├── requirements.txt             # Python dependencies
+├── tqrc_ieee.tex               # IEEE Transactions format (10 pages)
+├── tqrc_acm.tex                # ACM Computing Surveys format (11 pages)
+├── tqrc_references.bib         # Bibliography (52 references)
+│
+├── src/                        # Source code for reproducibility
+│   ├── tqrc/                   # Core Python package
+│   │   ├── __init__.py
+│   │   ├── constants.py        # Physical constants
+│   │   ├── core/               # Fibonacci anyon implementation
+│   │   ├── utils/              # Helper functions
+│   │   └── benchmarks/         # Performance tests
+│   └── 01_numerical_verification.py
+│
+└── figures/                    # All paper figures
+    ├── fig_tqrc_architecture_pro.png
+    ├── fig_unitarity_esp_tension.png
+    ├── fig_fusion_trees.png
+    ├── fig05_esp_violation.png
+    ├── fig06_dissipative_results.png
+    ├── fig07_root_cause.png
+    ├── fig10_memory_scaling.png
+    ├── fig11_tradeoff.png
+    ├── fig12_open_problems.png
+    ├── fig14_summary_table.png
+    ├── fig15_braiding_position.png
+    ├── fig16_takeaways.png
+    └── tikz_figures.tex        # TikZ source for LaTeX figures
+```
 
----
-
-## Building the Paper
+### Building the Paper
 
 ```bash
 # IEEE version
+cd tqrc
 pdflatex tqrc_ieee.tex
 bibtex tqrc_ieee
 pdflatex tqrc_ieee.tex
@@ -200,41 +281,16 @@ pdflatex tqrc_acm.tex
 
 ---
 
-## Repository Structure
-
-```
-tqrc/
-├── README.md                 # This file
-├── tqrc_ieee.tex            # IEEE format paper
-├── tqrc_acm.tex             # ACM format paper
-├── tqrc_references.bib      # Bibliography (50+ references)
-└── figures/
-    ├── fig_tqrc_architecture_pro.png
-    ├── fig_fusion_trees.png
-    ├── fig_unitarity_esp_tension.png
-    ├── fig05_esp_violation.png
-    ├── fig06_dissipative_results.png
-    ├── fig07_root_cause.png
-    ├── fig10_memory_scaling.png
-    ├── fig11_tradeoff.png
-    ├── fig12_open_problems.png
-    ├── fig14_summary_table.png
-    ├── fig15_braiding_position.png
-    ├── fig16_takeaways.png
-    └── tikz_figures.tex     # TikZ source
-```
-
----
-
 ## Citation
 
 ```bibtex
 @article{houshmand2025tqrc,
-  title={Fundamental Limitations of Topological Quantum Reservoir Computing:
-         A No-Go Theorem for Fibonacci Anyonic Systems},
-  author={Houshmand, Daniel Mo},
-  journal={arXiv preprint},
-  year={2025}
+  title     = {Fundamental Limitations of Topological Quantum Reservoir
+               Computing: A No-Go Theorem for Fibonacci Anyonic Systems},
+  author    = {Houshmand, Daniel Mo},
+  journal   = {arXiv preprint arXiv:2025.XXXXX},
+  year      = {2025},
+  url       = {https://github.com/QDaria/tqrc}
 }
 ```
 
@@ -242,12 +298,22 @@ tqrc/
 
 ## Related Work
 
-This paper builds on recent advances in:
+This research builds on recent advances in:
 
-- **Topological Quantum Computing**: Nayak et al. (2008), Kitaev (2003)
-- **Fibonacci Anyon Experiments**: Xu et al. (Nature Physics, 2024), Iqbal et al. (Nature, 2024)
-- **Quantum Reservoir Computing**: Fujii & Nakajima (2017), Kobayashi et al. (Phys. Rev. E, 2024)
-- **Echo State Property Theory**: Jaeger (2001), Kobayashi et al. (2024)
+### Topological Quantum Computing
+- Nayak, Simon, Stern, Freedman, Das Sarma. *Non-Abelian anyons and topological quantum computation.* Rev. Mod. Phys. **80**, 1083 (2008)
+- Kitaev. *Fault-tolerant quantum computation by anyons.* Ann. Phys. **303**, 2 (2003)
+
+### Experimental Fibonacci Anyons
+- Xu et al. *Non-Abelian braiding of Fibonacci anyons with a superconducting processor.* Nature Physics **20**, 1469 (2024)
+- Iqbal et al. *Non-Abelian topological order and anyons on a trapped-ion processor.* Nature **626**, 505 (2024)
+
+### Quantum Reservoir Computing
+- Fujii & Nakajima. *Harnessing disordered-ensemble quantum dynamics for machine learning.* Phys. Rev. Applied **8**, 024030 (2017)
+- Kobayashi, Tran, Nakajima. *Extending echo state property for quantum reservoir computing.* Phys. Rev. E **110**, 024207 (2024)
+
+### Echo State Property
+- Jaeger. *The "echo state" approach to analysing and training recurrent neural networks.* GMD Report **148** (2001)
 
 ---
 
@@ -255,8 +321,19 @@ This paper builds on recent advances in:
 
 This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
+You are free to share and adapt this material for any purpose, provided you give appropriate credit.
+
+---
+
+## Contact
+
+**Daniel Mo Houshmand**
+- Email: [mo@qdaria.com](mailto:mo@qdaria.com)
+- Organization: [QDaria](https://qdaria.com)
+- Location: Oslo, Norway
+
 ---
 
 <p align="center">
-<b>QDaria</b>
+  <b>QDaria</b> — Advancing Quantum Computing Research
 </p>
