@@ -7,6 +7,7 @@
 <h3 align="center">Fundamental Limitations of TQRC: A No-Go Theorem for Fibonacci Anyonic Systems</h3>
 
 <p align="center">
+  <a href="https://doi.org/10.5281/zenodo.17889778"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17889778.svg" alt="DOI"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python"></a>
   <a href="https://github.com/QDaria/tqrc"><img src="https://img.shields.io/badge/Code-Open%20Source-green.svg" alt="Open Source"></a>
@@ -288,7 +289,9 @@ pdflatex tqrc_acm.tex
                Computing: A No-Go Theorem for Fibonacci Anyonic Systems},
   author    = {Houshmand, Daniel Mo},
   year      = {2025},
-  url       = {https://github.com/QDaria/tqrc},
+  doi       = {10.5281/zenodo.17889778},
+  url       = {https://doi.org/10.5281/zenodo.17889778},
+  publisher = {Zenodo},
   note      = {Preprint}
 }
 ```
