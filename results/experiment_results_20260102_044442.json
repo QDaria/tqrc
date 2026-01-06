@@ -1,0 +1,62 @@
+{
+  "mackey_glass": {
+    "pure_unitary": {
+      "mean": 1.0,
+      "std": 0.0,
+      "n": 3,
+      "ci95_low": 1.0,
+      "ci95_high": 1.0,
+      "values": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "dissipative": {
+      "mean": 0.5,
+      "std": 0.0,
+      "n": 3,
+      "ci95_low": 0.5,
+      "ci95_high": 0.5,
+      "values": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "esn_13": {
+      "mean": 0.02,
+      "std": 0.0,
+      "n": 3,
+      "ci95_low": 0.02,
+      "ci95_high": 0.02,
+      "values": [
+        0.02,
+        0.02,
+        0.02
+      ]
+    },
+    "esn_52": {
+      "mean": 0.008,
+      "std": 0.0,
+      "n": 3,
+      "ci95_low": 0.008,
+      "ci95_high": 0.008,
+      "values": [
+        0.008,
+        0.008,
+        0.008
+      ]
+    },
+    "esn_vs_tqrc": {
+      "t_statistic": -Infinity,
+      "p_value": 0.0,
+      "significant": true
+    },
+    "esn52_vs_tqrc": {
+      "t_statistic": -Infinity,
+      "p_value": 0.0,
+      "significant": true
+    }
+  }
+}

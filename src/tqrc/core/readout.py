@@ -102,7 +102,7 @@ class RidgeReadout:
             ValueError: If shapes don't match
 
         Example:
-            >>> X = reservoir.get_reservoir_state_matrix(input_seq, washout=200)
+            >>> X = reservoir.get_reservoir_state_matrix(input_seq, washout=500)
             >>> Y = target_seq[:, 200:].T  # (output_dim, T)
             >>> readout.train(X, Y)
         """

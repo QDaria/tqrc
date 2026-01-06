@@ -1,0 +1,101 @@
+{
+  "experiment_metadata": {
+    "date": "2026-01-06",
+    "n_trials": 30,
+    "n_bootstrap": 10000,
+    "ci_method": "Percentile bootstrap",
+    "hypothesis_test": "Welch's t-test (unequal variances)",
+    "multiple_comparison_correction": "Bonferroni",
+    "effect_size_metric": "Cohen's d (pooled SD)"
+  },
+  "mackey_glass_tau17": {
+    "tqrc_unitary": {
+      "mean_nrmse": 0.9656417368883025,
+      "std_nrmse": 2.2584051416334807e-16,
+      "bootstrap_ci_95_low": 0.9656417368883025,
+      "bootstrap_ci_95_high": 0.9656417368883025,
+      "n_valid_trials": 30
+    },
+    "tqrc_dissipative": {
+      "mean_nrmse": 1.1781327386688043,
+      "std_nrmse": 0.6579971875667713,
+      "bootstrap_ci_95_low": 0.9745381582627215,
+      "bootstrap_ci_95_high": 1.447322630644405,
+      "n_valid_trials": 29
+    },
+    "esn_n13": {
+      "mean_nrmse": 0.014731085459522876,
+      "std_nrmse": 0.00544384020174367,
+      "bootstrap_ci_95_low": 0.012925785870976994,
+      "bootstrap_ci_95_high": 0.016737746985822942,
+      "n_valid_trials": 30
+    },
+    "esn_n100": {
+      "mean_nrmse": 0.004140132743214976,
+      "std_nrmse": 0.0005316029739208386,
+      "bootstrap_ci_95_low": 0.003962645575745906,
+      "bootstrap_ci_95_high": 0.004334127950740226,
+      "n_valid_trials": 30
+    }
+  },
+  "statistical_comparisons": [
+    {
+      "comparison": "ESN(13) vs TQRC Pure",
+      "cohens_d": -247.0297969850174,
+      "effect_interpretation": "very large",
+      "t_statistic": -956.7422897399715,
+      "p_value": 8.482456225869456e-67,
+      "p_bonferroni": 3.3929824903477825e-66,
+      "df": 29.0,
+      "performance_ratio": 65.55129556078066,
+      "significant_bonferroni": true
+    },
+    {
+      "comparison": "ESN(100) vs TQRC Pure",
+      "cohens_d": -2557.8649396870264,
+      "effect_interpretation": "very large",
+      "t_statistic": -9906.568313255691,
+      "p_value": 3.090246568052144e-96,
+      "p_bonferroni": 1.2360986272208576e-95,
+      "df": 29.0,
+      "performance_ratio": 233.23931786265473,
+      "significant_bonferroni": true
+    },
+    {
+      "comparison": "ESN(13) vs TQRC Dissipative",
+      "cohens_d": -2.5226015472721106,
+      "effect_interpretation": "very large",
+      "t_statistic": -9.521168930972877,
+      "p_value": 2.807518590249804e-10,
+      "p_bonferroni": 1.1230074360999216e-09,
+      "df": 28.00370533881623,
+      "performance_ratio": 79.97596252536863,
+      "significant_bonferroni": true
+    },
+    {
+      "comparison": "ESN(100) vs TQRC Dissipative",
+      "cohens_d": -2.5456552586773027,
+      "effect_interpretation": "very large",
+      "t_statistic": -9.608159107987934,
+      "p_value": 2.3086484727687972e-10,
+      "p_bonferroni": 9.234593891075189e-10,
+      "df": 28.000035333894164,
+      "performance_ratio": 284.56400114213193,
+      "significant_bonferroni": true
+    }
+  ],
+  "interpretation_guide": {
+    "cohens_d": {
+      "< 0.2": "negligible",
+      "0.2-0.5": "small",
+      "0.5-0.8": "medium",
+      "0.8-1.2": "large",
+      "> 1.2": "very large"
+    },
+    "significance_levels": {
+      "*": "p < 0.05",
+      "**": "p < 0.01",
+      "***": "p < 0.001"
+    }
+  }
+}

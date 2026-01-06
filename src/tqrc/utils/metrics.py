@@ -27,11 +27,15 @@ def nmse(y_pred: np.ndarray, y_true: np.ndarray) -> float:
         - NMSE > 1: Worse than predicting the mean
 
     Raises:
-        ValueError: If arrays have different shapes or contain NaN/Inf
+        ValueError: If arrays have different total elements or contain NaN/Inf
 
     Source:
         Standard definition, verified in verification/03
     """
+    # Flatten arrays for consistent comparison
+    y_pred = np.asarray(y_pred).flatten()
+    y_true = np.asarray(y_true).flatten()
+
     if y_pred.shape != y_true.shape:
         raise ValueError(
             f"Shape mismatch: y_pred {y_pred.shape} != y_true {y_true.shape}"

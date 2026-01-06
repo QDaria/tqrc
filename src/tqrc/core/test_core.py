@@ -106,8 +106,8 @@ def test_reservoir():
     # Test full dynamics
     T = 300
     input_seq = np.random.uniform(-1, 1, size=(T, 1))
-    states = reservoir.run_dynamics(input_seq, washout=200)
-    assert states.shape == (100, 2), f"Wrong states shape: {states.shape}"
+    states = reservoir.run_dynamics(input_seq, washout=100)  # Use 100 for test (T=300)
+    assert states.shape == (200, 2), f"Wrong states shape: {states.shape}"
 
     # Verify all states are probability distributions
     for i in range(states.shape[0]):
@@ -169,7 +169,7 @@ def test_full_pipeline():
     target_seq = np.roll(input_seq, delay, axis=0)  # y(t) = u(t-delay)
 
     # Run dynamics
-    washout = 200
+    washout = 500
     states = reservoir.run_dynamics(input_seq, washout=washout)
     T_train = 600
 

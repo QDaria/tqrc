@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tqrc"
+version = "0.1.0"
+description = "Topological Quantum Reservoir Computing with Fibonacci Anyons"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Daniel Mo Houshmand"}
+]
+keywords = ["quantum computing", "reservoir computing", "topological", "anyons"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "matplotlib>=3.8.0",
+    "scikit-learn>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pandas>=2.1.0",
+    "seaborn>=0.13.0",
+    "tqdm>=4.66.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/qdaria/tqrc"
+Documentation = "https://github.com/qdaria/tqrc/docs"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=tqrc --cov-report=term-missing"

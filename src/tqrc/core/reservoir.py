@@ -249,7 +249,7 @@ class TQRCReservoir:
 
     def run_dynamics(self,
                      input_sequence: np.ndarray,
-                     washout: int = 200,
+                     washout: int = 500,
                      initial_state: Optional[np.ndarray] = None) -> np.ndarray:
         """
         Run full dynamics on input sequence.
@@ -274,7 +274,7 @@ class TQRCReservoir:
             >>> # Generate random input
             >>> T = 1000
             >>> input_seq = np.random.uniform(-1, 1, size=(T, 1))
-            >>> states = reservoir.run_dynamics(input_seq, washout=200)
+            >>> states = reservoir.run_dynamics(input_seq, washout=500)
             >>> states.shape
             (800, 2)  # (T - washout, dim)
         """
@@ -319,7 +319,7 @@ class TQRCReservoir:
 
     def get_reservoir_state_matrix(self,
                                    input_sequence: np.ndarray,
-                                   washout: int = 200) -> np.ndarray:
+                                   washout: int = 500) -> np.ndarray:
         """
         Get reservoir state matrix X for training.
 
@@ -333,7 +333,7 @@ class TQRCReservoir:
 
         Example:
             >>> input_seq = np.random.uniform(-1, 1, (1000, 1))
-            >>> X = reservoir.get_reservoir_state_matrix(input_seq, washout=200)
+            >>> X = reservoir.get_reservoir_state_matrix(input_seq, washout=500)
             >>> X.shape
             (2, 800)  # (dim, T - washout)
         """

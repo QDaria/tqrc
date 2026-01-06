@@ -27,7 +27,7 @@ Example Usage:
     >>> # Run dynamics
     >>> import numpy as np
     >>> input_seq = np.random.uniform(-1, 1, (1000, 1))
-    >>> states = reservoir.run_dynamics(input_seq, washout=200)
+    >>> states = reservoir.run_dynamics(input_seq, washout=500)
     >>>
     >>> # Train readout
     >>> readout = RidgeReadout(state_dim=2, output_dim=1)

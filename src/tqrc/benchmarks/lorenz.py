@@ -142,7 +142,7 @@ class Lorenz63:
         return normalized, stats
 
     def create_training_data(self, T_train: int = 5000, T_test: int = 2000,
-                            T_washout: int = 100,
+                            T_washout: int = 500,
                             steps_ahead: int = 1) -> Tuple[np.ndarray, ...]:
         """Create train/test split for TQRC with one-step ahead prediction.
 

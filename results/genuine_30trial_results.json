@@ -1,0 +1,153 @@
+{
+  "experiment_metadata": {
+    "date": "2026-01-06",
+    "n_trials": 30,
+    "statistical_methods": {
+      "confidence_intervals": "Bootstrap with 10,000 resamples (percentile method)",
+      "hypothesis_test": "Welch's t-test (unequal variances assumed)",
+      "multiple_comparison_correction": "Bonferroni (4 comparisons)",
+      "effect_size": "Cohen's d with pooled standard deviation"
+    },
+    "outlier_rejection": "NRMSE > 10 excluded as numerical instability",
+    "reproducibility": {
+      "seeds": "TQRC: 100-129, ESN MG: 200-229, TQRC Lorenz: 300-329, ESN Lorenz: 400-429",
+      "docker": "docker run -it tqrc:latest python scripts/run_experiments.py --benchmark all --trials 30"
+    }
+  },
+  "mackey_glass_tau17": {
+    "tqrc_pure_unitary": {
+      "mean_nrmse": 0.9656,
+      "std_nrmse": 0.0000,
+      "bootstrap_ci_95": [0.9656, 0.9656],
+      "n_valid_trials": 30,
+      "note": "Zero variance expected: unitary evolution is deterministic"
+    },
+    "tqrc_dissipative_gamma_0.01": {
+      "mean_nrmse": 1.0120,
+      "std_nrmse": 0.1621,
+      "bootstrap_ci_95": [0.9503, 1.0736],
+      "n_valid_trials": 29
+    },
+    "tqrc_dissipative_gamma_0.1": {
+      "mean_nrmse": 1.1781,
+      "std_nrmse": 0.6580,
+      "bootstrap_ci_95": [0.9745, 1.4473],
+      "n_valid_trials": 29
+    },
+    "tqrc_dissipative_gamma_0.3": {
+      "mean_nrmse": 0.9894,
+      "std_nrmse": 0.1049,
+      "bootstrap_ci_95": [0.9503, 1.0286],
+      "n_valid_trials": 30
+    },
+    "esn_n13": {
+      "mean_nrmse": 0.0147,
+      "std_nrmse": 0.0054,
+      "bootstrap_ci_95": [0.0129, 0.0167],
+      "n_valid_trials": 30
+    },
+    "esn_n50": {
+      "mean_nrmse": 0.0068,
+      "std_nrmse": 0.0012,
+      "bootstrap_ci_95": [0.0063, 0.0073],
+      "n_valid_trials": 30
+    },
+    "esn_n100": {
+      "mean_nrmse": 0.0041,
+      "std_nrmse": 0.0005,
+      "bootstrap_ci_95": [0.0040, 0.0043],
+      "n_valid_trials": 30
+    },
+    "esn_n200": {
+      "mean_nrmse": 0.0031,
+      "std_nrmse": 0.0003,
+      "bootstrap_ci_95": [0.0030, 0.0032],
+      "n_valid_trials": 30
+    }
+  },
+  "lorenz63": {
+    "tqrc_pure_unitary": {
+      "mean_nrmse": 1.0137,
+      "std_nrmse": 0.0000,
+      "bootstrap_ci_95": [1.0137, 1.0137],
+      "n_valid_trials": 30,
+      "note": "Zero variance expected: unitary evolution is deterministic"
+    },
+    "tqrc_dissipative_gamma_0.1": {
+      "mean_nrmse": 1.1245,
+      "std_nrmse": 0.4333,
+      "bootstrap_ci_95": [0.9627, 1.2863],
+      "n_valid_trials": 30
+    },
+    "esn_n13": {
+      "mean_nrmse": 0.0045,
+      "std_nrmse": 0.0015,
+      "bootstrap_ci_95": [0.0040, 0.0051],
+      "n_valid_trials": 30
+    },
+    "esn_n100": {
+      "mean_nrmse": 0.0007,
+      "std_nrmse": 0.0001,
+      "bootstrap_ci_95": [0.0007, 0.0008],
+      "n_valid_trials": 30
+    }
+  },
+  "narma10": {
+    "description": "NARMA-10 nonlinear autoregressive moving average benchmark (memory-focused)",
+    "tqrc_pure_unitary": {
+      "mean_nrmse": 0.7539,
+      "std_nrmse": 0.1114,
+      "bootstrap_ci_95": [0.7116, 0.7962],
+      "n_valid_trials": 30,
+      "note": "Better than chaotic prediction due to memory-focused nature"
+    },
+    "tqrc_dissipative_gamma_0.1": {
+      "mean_nrmse": 0.9439,
+      "std_nrmse": 1.0006,
+      "bootstrap_ci_95": [0.5674, 1.3204],
+      "n_valid_trials": 29
+    },
+    "esn_n13": {
+      "mean_nrmse": 0.8074,
+      "std_nrmse": 0.0583,
+      "bootstrap_ci_95": [0.7851, 0.8297],
+      "n_valid_trials": 29
+    },
+    "esn_n100": {
+      "mean_nrmse": 0.8435,
+      "std_nrmse": 0.0856,
+      "bootstrap_ci_95": [0.8108, 0.8762],
+      "n_valid_trials": 29
+    },
+    "analysis": "TQRC performs comparably to ESN on NARMA-10 because this task primarily tests memory capacity rather than phase-coherent chaotic prediction"
+  },
+  "statistical_comparisons": {
+    "mackey_glass": [
+      {
+        "comparison": "ESN(13) vs TQRC Pure Unitary",
+        "cohens_d": -247.03,
+        "effect_interpretation": "very large",
+        "t_statistic": -956.74,
+        "p_value_bonferroni": 3.39e-66,
+        "performance_ratio": 65.6,
+        "significant": true
+      },
+      {
+        "comparison": "ESN(100) vs TQRC Pure Unitary",
+        "cohens_d": -2557.86,
+        "effect_interpretation": "very large",
+        "t_statistic": -9906.57,
+        "p_value_bonferroni": 1.24e-95,
+        "performance_ratio": 233.2,
+        "significant": true
+      }
+    ]
+  },
+  "key_findings": {
+    "theorem_3_1_validated": "Pure unitary TQRC achieves NRMSE ≈ 1.0 (random guessing baseline) on chaotic prediction, validating theoretical impossibility result",
+    "performance_gap_confirmed": "ESN outperforms TQRC by 66-233× on Mackey-Glass (p < 10^-65, Cohen's d > 200)",
+    "dissipation_insufficient": "Even with γ=0.1-0.3, TQRC still achieves NRMSE ≈ 1.0 on chaotic tasks",
+    "narma_nuance": "TQRC performs comparably on memory-focused NARMA-10 task (no chaotic sensitivity required)",
+    "statistical_rigor": "All comparisons significant at p < 0.001 with Bonferroni correction; effect sizes 'very large' per Cohen's criteria"
+  }
+}
