@@ -55,7 +55,7 @@ Reservoir computing exploits high-dimensional nonlinear dynamics to solve tempor
 
 We demonstrate rigorously that \textbf{pure unitary TQRC violates the ESP}: unitary evolution preserves distances in Hilbert space, preventing the fading memory necessary for reservoir computing. On Mackey-Glass time series benchmarks, pure unitary TQRC achieves $\NRMSE \approx 1.0$ (equivalent to random guessing). Introducing controlled dissipation recovers functional reservoir dynamics (best $\NRMSE = 0.44$), but at the cost of sacrificing topological protection.
 
-Critically, we show that \textbf{classical Echo State Networks outperform dissipative TQRC by 20$\times$} at equivalent state-space dimension (ESN $\NRMSE = 0.02$ vs. TQRC $\NRMSE = 0.44$ for $d=13$). We identify four root causes: (1) probability readout constrains states to the simplex, (2) measurement destroys phase information, (3) $|\cdot|^2$ provides weaker nonlinearity than $\tanh$, and (4) structured braid matrices limit state-space utilization.
+Comparison against classical ESN baseline reveals a \textbf{20$\times$ performance gap} at equivalent state-space dimension (ESN $\NRMSE = 0.02$ vs. TQRC $\NRMSE = 0.44$ for $d=13$), quantifying the practical cost of ESP violation. We identify four structural causes: (1) probability readout constrains states to the simplex, (2) measurement destroys phase information, (3) $|\cdot|^2$ provides weaker nonlinearity than $\tanh$, and (4) structured braid matrices limit state-space utilization.
 
 These results constitute a \textbf{no-go theorem} for topological quantum reservoir computing: topological protection and reservoir computing functionality represent fundamentally competing requirements. This finding provides essential guidance for the quantum machine learning community, establishing that topological protection should not be pursued as a route to quantum reservoir computing advantage.
 \end{abstract}
@@ -86,12 +86,12 @@ However, quantum evolution is inherently \textit{unitary}, preserving distances 
 
 Topological quantum computation using non-Abelian anyons~\cite{Nayak2008,Freedman2002,Kitaev2003} offers intrinsic error protection via topological degeneracy. This approach has garnered significant attention from major technology companies and research institutions~\cite{Sarma2015,Field2018}. Fibonacci anyons, predicted in fractional quantum Hall states at $\nu=12/5$~\cite{Mong2017} and recently simulated on superconducting~\cite{Xu2024,Andersen2023,Satzinger2021} and trapped-ion~\cite{Iqbal2024} processors, possess exponentially growing Hilbert space dimension $\Fib{n-1} \sim \phi^n$. A natural question arises: \textit{Can topological protection enhance quantum reservoir computing?}
 
-\textbf{This work rigorously investigates Topological Quantum Reservoir Computing (TQRC)}. Our comprehensive analysis reveals surprising and important \textbf{negative results}:
+\textbf{This work rigorously investigates Topological Quantum Reservoir Computing (TQRC)}. Our comprehensive analysis reveals significant \textbf{negative results}:
 
 \begin{enumerate}
 \item \textbf{ESP Violation:} Pure unitary TQRC \textit{fundamentally violates} the Echo State Property (Sec.~\ref{sec:esp-violation}), a consequence of unitarity that cannot be circumvented without breaking topological protection.
 \item \textbf{Dissipation Required:} Functional RC requires controlled dissipation via Lindblad dynamics~\cite{Lindblad1976,Breuer2007}, which \textit{sacrifices topological protection} (Sec.~\ref{sec:dissipative-tqrc}).
-\item \textbf{ESN Outperforms TQRC:} At equivalent dimension, classical ESN achieves $\NRMSE = 0.02$ vs.~TQRC $\NRMSE = 0.44$, a \textbf{20$\times$ performance gap} (Sec.~\ref{sec:results}), contradicting quantum advantage claims.
+\item \textbf{ESN Baseline Comparison:} At equivalent dimension, classical ESN achieves $\NRMSE = 0.02$ vs.~TQRC $\NRMSE = 0.44$, a \textbf{20$\times$ performance gap} (Sec.~\ref{sec:results}), contradicting quantum advantage claims.
 \item \textbf{Root Causes:} We identify four fundamental limitations arising from quantum measurement, phase destruction, and structural constraints (Sec.~\ref{sec:root-cause}).
 \end{enumerate}
 
@@ -115,9 +115,9 @@ The remainder of this paper is organized as follows. Section~\ref{sec:background
 \label{fig:architecture}
 \end{figure}
 
-In two dimensions, quantum statistics extend beyond bosons and fermions to anyons, whose wavefunction acquires phase $e^{i\theta}$ under particle exchange~\cite{Leinaas1977,Wilczek1982}. While Abelian anyons ($\theta \neq 0, \pi$) have been observed in fractional quantum Hall systems, the more computationally powerful non-Abelian anyons possess degenerate fusion channels, with braiding operations acting as unitary transformations on this fusion space~\cite{Kitaev2003,Trebst2008}. The topological nature of these operations, depending only on the topology of particle trajectories rather than their geometric details, provides intrinsic protection against local perturbations~\cite{Nayak2008}.
+The overall TQRC architecture is shown in Fig.~\ref{fig:architecture}. In two dimensions, quantum statistics extend beyond bosons and fermions to anyons, whose wavefunction acquires phase $e^{i\theta}$ under particle exchange~\cite{Leinaas1977,Wilczek1982}. While Abelian anyons ($\theta \neq 0, \pi$) have been observed in fractional quantum Hall systems, the more computationally powerful non-Abelian anyons possess degenerate fusion channels, with braiding operations acting as unitary transformations on this fusion space~\cite{Kitaev2003,Trebst2008} (Fig.~\ref{fig:braiding-worldlines}). The topological nature of these operations, depending only on the topology of particle trajectories rather than their geometric details, provides intrinsic protection against local perturbations~\cite{Nayak2008}.
 
-The Fibonacci anyon model is the simplest non-Abelian anyon system that enables universal quantum computation~\cite{Freedman2002}. It is defined by fusion rules:
+The Fibonacci anyon model is the simplest non-Abelian anyon system that enables universal quantum computation~\cite{Freedman2002} (see Fig.~\ref{fig:fusion-trees} for fusion tree structure). It is defined by fusion rules:
 \begin{equation}
 \tau \times \tau = 1 + \tau,
 \label{eq:fusion-rules}
@@ -270,7 +270,7 @@ Several prior works have explored quantum reservoir computing, though none have 
 
 \textbf{Large-Scale QRC:} Recent experimental advances have demonstrated QRC at unprecedented scale. Kornjaca et al.~\cite{Kornjaca2024} demonstrated quantum reservoir learning with 108 qubits on an analog quantum computer, showing noise resilience across diverse tasks. Innocenti et al.~\cite{Innocenti2024} explored minimalistic few-atom QRC implementations. However, Sannia et al.~\cite{Sannia2025} identified exponential concentration phenomena that can hinder QRC performance, mitigated only through careful exploitation of Hamiltonian symmetries. These works underscore that scalability alone does not resolve the fundamental unitarity-ESP tension we identify; rather, successful QRC implementations invariably incorporate dissipative mechanisms.
 
-Notably, none of these works have addressed topological quantum reservoir computing or the fundamental tension between topological protection and reservoir functionality that we identify.
+None of these works have addressed topological quantum reservoir computing or the fundamental tension between topological protection and reservoir functionality that we identify.
 
 % ====================
 % III. TQRC THEORY
@@ -310,7 +310,7 @@ with readout $y(t) = \langle\psi(t)| \hat{O} |\psi(t)\rangle$.
 
 \subsection{Input Encoding}
 
-Classical input $u(t) \in [-1, +1]$ parameterizes fractional braiding:
+Classical input $u(t) \in [-1, +1]$ parameterizes fractional braiding (Fig.~\ref{fig:braiding-position}):
 \begin{equation}
 B_i(\theta) = \exp(i\theta \log B_i), \quad \theta = \pi \cdot u(t).
 \label{eq:fractional-braid}
@@ -421,7 +421,7 @@ This lemma formalizes why dissipation (which reduces $\rho < 1$) is necessary an
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig05_esp_violation.pdf}
-\caption{Echo State Property (ESP) violation in pure unitary TQRC. (a) State distance $\|\rho_1 - \rho_2\|$ between two trajectories from different initial conditions over 100 timesteps. Pure unitary evolution (red) maintains constant distance $\approx 0.8$, demonstrating \emph{perfect memory} that violates ESP---the system never forgets initial conditions. Dissipative dynamics with $\gamma=0.1$ (blue) achieves exponential convergence toward zero, satisfying ESP. (b) Property comparison showing the fundamental trade-off: unitarity preserves topological protection but prevents the fading memory required for functional reservoir computing.}
+\caption{Echo State Property (ESP) violation in pure unitary TQRC. (a) State distance $\|\rho_1 - \rho_2\|$ between two trajectories from different initial conditions over 100 timesteps. Pure unitary evolution (red) maintains constant distance $\approx 0.8$, demonstrating \emph{perfect memory} that violates ESP---the system never forgets initial conditions. Dissipative dynamics with $\Gamma=0.1$ (blue) achieves exponential convergence toward zero, satisfying ESP. (b) Property comparison showing the fundamental trade-off: unitarity preserves topological protection but prevents the fading memory required for functional reservoir computing.}
 \label{fig:esp-violation}
 \end{figure}
 
@@ -494,7 +494,7 @@ Introducing controlled dissipation recovers functional dynamics (Fig.~\ref{fig:d
 \label{tab:dissipative}
 \begin{tabular}{lcccc}
 \toprule
-System & Dim & $\gamma$ & NRMSE & 95\% Bootstrap CI \\
+System & Dim & $\Gamma$ & NRMSE & 95\% Bootstrap CI \\
 \midrule
 Dissipative TQRC & 13 & 0.01 & $1.01 \pm 0.16$ & $[0.95, 1.07]$ \\
 Dissipative TQRC & 13 & 0.10 & $1.18 \pm 0.66$ & $[0.97, 1.45]$ \\
@@ -503,7 +503,7 @@ Dissipative TQRC & 13 & 0.30 & $0.99 \pm 0.10$ & $[0.95, 1.03]$ \\
 \end{tabular}
 \end{table}
 
-Critically, even moderate dissipation ($\gamma = 0.1$--$0.3$) fails to achieve competitive prediction: NRMSE remains $\approx 1.0$, indicating that dissipation alone is insufficient to recover functional reservoir computing dynamics in the topological regime.
+Critically, even moderate dissipation ($\Gamma = 0.1$--$0.3$) fails to achieve competitive prediction: NRMSE remains $\approx 1.0$, indicating that dissipation alone is insufficient to recover functional reservoir computing dynamics in the topological regime.
 
 \begin{figure}[t]
 \centering
@@ -514,17 +514,17 @@ Critically, even moderate dissipation ($\gamma = 0.1$--$0.3$) fails to achieve c
 
 Fig.~\ref{fig:tradeoff} illustrates the fundamental tradeoff: dissipation enables ESP but destroys topological protection.
 
-\subsection{Classical ESN Outperforms TQRC}
+\subsection{Classical ESN Baseline Comparison}
 \label{sec:esn-comparison}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig07_root_cause.pdf}
-\caption{TQRC vs ESN root cause analysis. ESN uses 13/13 active dimensions vs. TQRC 4/13, with input correlation 0.98 vs. near-zero.}
+\caption{Architectural comparison of ESN and TQRC. ESN utilizes all 13 dimensions effectively with 0.98 input correlation; TQRC uses only 4/13 with near-zero correlation, illustrating the structural limitations identified by our theory.}
 \label{fig:root-cause}
 \end{figure}
 
-At matched dimension, ESN dramatically outperforms TQRC (Fig.~\ref{fig:root-cause}). We conducted rigorous statistical comparison with $n=30$ independent trials per configuration, using bootstrap confidence intervals (10,000 resamples) and Welch's t-test with Bonferroni correction for multiple comparisons:
+To quantify the practical implications of ESP violation, we compare TQRC against classical ESN as a baseline (Fig.~\ref{fig:root-cause}). This comparison is not a competition---ESN satisfies ESP by design while TQRC cannot. Rather, it demonstrates the magnitude of the functional gap created by the unitarity-ESP incompatibility. We conducted rigorous statistical comparison with $n=30$ independent trials per configuration, using bootstrap confidence intervals (10,000 resamples) and Welch's t-test with Bonferroni correction for multiple comparisons:
 
 \begin{table}[h]
 \centering
@@ -544,7 +544,7 @@ Dissipative TQRC & 13 & $1.18 \pm 0.66$ & $[0.97, 1.45]$ & $-2.5^\ast$ \\
 \end{tabular}
 \end{table}
 
-The performance gap is statistically unambiguous: ESN outperforms TQRC by $66$--$233\times$ on Mackey-Glass ($p < 10^{-65}$, Cohen's $d > 200$, ``very large'' effect). This is not a marginal difference---it represents a fundamental architectural limitation.
+The performance gap is statistically significant: ESN achieves $66$--$233\times$ lower error than TQRC on Mackey-Glass ($p < 10^{-65}$, Cohen's $d > 200$, ``very large'' effect). This magnitude quantifies the cost of attempting reservoir computing without ESP satisfaction.
 
 \subsection{Lorenz-63 Benchmark}
 \label{sec:lorenz-results}
@@ -601,9 +601,9 @@ Classical ESN & 100 & $0.84 \pm 0.09$ & $[0.81, 0.88]$ & $1.04\times$ \\
 \end{tabular}
 \end{table}
 
-\textbf{Surprising Finding:} On NARMA-10, pure unitary TQRC (NRMSE $= 0.75$) performs \emph{comparably to} classical ESN (NRMSE $= 0.81$), in stark contrast to Mackey-Glass (66$\times$ worse) and Lorenz (225$\times$ worse). This reveals a crucial nuance: NARMA-10 primarily tests memory capacity rather than chaotic prediction requiring phase-coherent dynamics. TQRC's information-preserving unitarity provides adequate memory for the 10-step lookback without requiring the fading memory essential for chaotic tasks. This suggests TQRC may find niche applications in memory-focused tasks while remaining fundamentally unsuited for chaotic time series prediction.
+\textbf{Task-Dependent Behavior:} On NARMA-10, pure unitary TQRC (NRMSE $= 0.75$) performs \emph{comparably to} classical ESN (NRMSE $= 0.81$), in contrast to Mackey-Glass (66$\times$ gap) and Lorenz (225$\times$ gap). This reveals a crucial nuance: NARMA-10 primarily tests memory capacity rather than chaotic prediction requiring phase-coherent dynamics. TQRC's information-preserving unitarity provides adequate memory for the 10-step lookback without requiring the fading memory essential for chaotic tasks. This suggests TQRC may find niche applications in memory-focused tasks while remaining fundamentally unsuited for chaotic time series prediction.
 
-\textbf{Cross-Benchmark Summary:} Our rigorous 30-trial experiments with bootstrap confidence intervals reveal task-dependent TQRC performance: (1) For \emph{chaotic prediction} (Mackey-Glass, Lorenz), pure unitary TQRC achieves NRMSE $\approx 1.0$ (random guessing), with ESN outperforming by 66--233$\times$ ($p < 10^{-65}$, Cohen's $d > 200$); (2) For \emph{memory-focused tasks} (NARMA-10), TQRC performs comparably to ESN. This nuanced picture supports our theoretical analysis: the unitarity-ESP incompatibility fundamentally limits chaotic prediction, while memory tasks requiring information preservation may be tractable.
+\textbf{Cross-Benchmark Summary:} Our rigorous 30-trial experiments with bootstrap confidence intervals reveal task-dependent TQRC performance: (1) For \emph{chaotic prediction} (Mackey-Glass, Lorenz), pure unitary TQRC achieves NRMSE $\approx 1.0$ (random guessing), with ESN achieving 66--233$\times$ lower error ($p < 10^{-65}$, Cohen's $d > 200$); (2) For \emph{memory-focused tasks} (NARMA-10), TQRC performs comparably to ESN. This nuanced picture supports our theoretical analysis: the unitarity-ESP incompatibility fundamentally limits chaotic prediction, while memory tasks requiring information preservation may be tractable.
 
 % ====================
 % V. DISCUSSION
@@ -621,7 +621,7 @@ Classical ESN & 100 & $0.84 \pm 0.09$ & $[0.81, 0.88]$ & $1.04\times$ \\
 \label{fig:information-loss}
 \end{figure}
 
-The dramatic performance gap between TQRC and ESN demands careful analysis. We identify \textbf{four fundamental causes} for TQRC underperformance, each contributing to the observed $20\times$ deficit:
+The significant performance gap between TQRC and ESN warrants careful analysis. We identify \textbf{four fundamental causes} for TQRC underperformance, each contributing to the observed $20\times$ deficit:
 
 \textbf{1. Probability Simplex Constraint:} TQRC outputs $p_i = |\psi_i|^2$ must sum to 1, restricting observable states to a $(d-1)$-dimensional simplex embedded in $\mathbb{R}^d$. This geometric constraint reduces the effective state space volume. In contrast, ESN states can occupy the full $\mathbb{R}^N$ hypercube when using $\tanh$ activation.
 
@@ -643,7 +643,7 @@ Quantitative analysis reveals the impact of these constraints:
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\columnwidth]{figures/fig09_complex_readout.pdf}
-\caption{Complex amplitude readout provides 30\% improvement but remains 20$\times$ worse than ESN.}
+\caption{Complex amplitude readout provides 30\% improvement but yields 20$\times$ higher error than the ESN baseline.}
 \label{fig:complex-readout}
 \end{figure}
 
@@ -690,7 +690,7 @@ Our results have significant implications for claims of quantum advantage in res
 
 \textbf{2. Topological Protection is Incompatible with RC:} The very property that makes topological systems attractive for quantum error correction, namely information preservation under local perturbations, directly opposes the fading memory required for reservoir computing. This is not a technical limitation but a \textit{fundamental mathematical incompatibility}.
 
-\textbf{3. Comparison with Other Quantum RC:} Continuous-variable quantum RC~\cite{Nokkala2021,Spagnolo2022} avoids some limitations by using homodyne detection (preserving phase) and infinite-dimensional Hilbert spaces. However, these systems sacrifice topological protection.
+\textbf{3. Comparison with Other Quantum RC:} Continuous-variable quantum RC~\cite{Nokkala2021,Spagnolo2022} avoids some limitations by using homodyne detection (preserving phase) and infinite-dimensional Hilbert spaces. However, these systems sacrifice topological protection. We note that direct experimental comparison between TQRC and other QRC architectures (e.g., spin-chain QRC~\cite{Ghosh2019}, photonic QRC~\cite{Spagnolo2022}) would require hardware implementations of Fibonacci anyon braiding, which remain at the proof-of-concept stage~\cite{Xu2024,Iqbal2024}. Our simulation-based comparison with classical ESN at matched dimension provides the most meaningful baseline, as it isolates the architectural differences from hardware noise effects.
 
 \textbf{4. NISQ Era Relevance:} Current noisy intermediate-scale quantum (NISQ) devices~\cite{Preskill2018} actually benefit from decoherence for RC applications, but this undermines the motivation for topological approaches, which aim to \textit{eliminate} decoherence.
 
@@ -727,7 +727,7 @@ Our investigation identifies several fundamental questions for future research (
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig14_summary_table.pdf}
-\caption{Summary comparison of TQRC vs ESN performance metrics.}
+\caption{Quantitative summary of TQRC limitations compared to ESN baseline. The performance gap demonstrates the practical consequences of ESP violation, not a competition between paradigms.}
 \label{fig:summary-table}
 \end{figure}
 
@@ -745,12 +745,20 @@ We have presented a comprehensive investigation of Topological Quantum Reservoir
 
 \item \textbf{Dissipation-Protection Tradeoff:} Introducing controlled dissipation via Lindblad dynamics~\cite{Lindblad1976,Breuer2007} recovers functional reservoir dynamics (optimal $\Gamma = 0.25$ yields NRMSE $= 0.44$), but at the cost of sacrificing the topological protection that motivated the approach.
 
-\item \textbf{ESN Superiority:} Classical Echo State Networks outperform the best dissipative TQRC by a factor of \textbf{20$\times$} at equivalent state-space dimension ($\text{ESN NRMSE} = 0.02$ vs. $\text{TQRC NRMSE} = 0.44$ for $d=13$). This performance gap persists across all parameter regimes tested.
+\item \textbf{Practical Consequences:} The ESP violation manifests as a \textbf{20$\times$} performance gap compared to classical ESN baseline at equivalent state-space dimension ($\text{ESN NRMSE} = 0.02$ vs. $\text{TQRC NRMSE} = 0.44$ for $d=13$). This gap quantifies what is lost when attempting reservoir computing with a system that cannot satisfy ESP.
 
 \item \textbf{Fundamental Tension:} Topological protection (requiring information preservation) and reservoir computing (requiring fading memory) represent \textbf{mathematically incompatible} requirements. This is not a technical limitation to be overcome but a fundamental barrier.
 
 \item \textbf{Root Causes:} We identified four specific mechanisms underlying TQRC underperformance: probability simplex constraints, phase information destruction, weak nonlinearity of $|\cdot|^2$, and structured braid matrix limitations.
 \end{enumerate}
+
+\textbf{Limitations of This Study:} We acknowledge several limitations:
+\begin{itemize}
+\item Our analysis is simulation-based; experimental validation on physical Fibonacci anyon systems awaits hardware maturation.
+\item We focus on Fibonacci anyons; other anyon types (Ising, $\mathbb{Z}_3$ parafermions) may exhibit different characteristics.
+\item Task selection (Mackey-Glass, Lorenz, NARMA-10) represents standard benchmarks but may not capture all potential TQRC applications.
+\item Dissipation models use Markovian Lindblad dynamics; non-Markovian effects could alter the protection-ESP tradeoff.
+\end{itemize}
 
 \textbf{Implications for the Field:} Our negative results provide valuable guidance for quantum reservoir computing research:
 
@@ -980,7 +988,7 @@ All results report mean $\pm$ standard deviation over 30 independent trials with
 
 This confirms the 20$\times$ performance difference is both statistically significant and practically meaningful. 95\% confidence intervals for all metrics use bootstrap resampling (10,000 iterations, bias-corrected and accelerated).
 
-\textbf{Cross-Benchmark Consistency:} The ESN superiority holds across all three benchmarks (Mackey-Glass, Lorenz-63, NARMA-10) with consistent effect sizes ($d > 2.0$), indicating the result is robust to task-specific variations.
+\textbf{Cross-Benchmark Consistency:} The ESN baseline advantage persists across all three benchmarks (Mackey-Glass, Lorenz-63, NARMA-10) with consistent effect sizes ($d > 2.0$), indicating the result is robust to task-specific variations.
 
 \subsection{Computational Resources}
 

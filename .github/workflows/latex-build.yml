@@ -1,0 +1,70 @@
+name: Build LaTeX Paper
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - 'figures/**'
+      - '.github/workflows/latex-build.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - 'figures/**'
+  workflow_dispatch:
+
+jobs:
+  build-paper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tqrc_ieee.tex
+          latexmk_use_xelatex: false
+          latexmk_shell_escape: true
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Check PDF was generated
+        run: |
+          if [ -f tqrc_ieee.pdf ]; then
+            echo "✅ PDF generated successfully"
+            ls -la tqrc_ieee.pdf
+          else
+            echo "❌ PDF generation failed"
+            exit 1
+          fi
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tqrc-paper-${{ github.sha }}
+          path: tqrc_ieee.pdf
+          retention-days: 30
+
+      - name: Upload PDF to release (on tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: tqrc_ieee.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  validate-citation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate CITATION.cff
+        uses: citation-file-format/cffconvert-github-action@main
+        with:
+          args: --validate

@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+title: >-
+  Fundamental Limitations of Topological Quantum Reservoir Computing:
+  A No-Go Theorem for Fibonacci Anyonic Systems
+message: >-
+  If you use this research, please cite it using the metadata from this file.
+type: software
+authors:
+  - family-names: Houshmand
+    given-names: Daniel Mo
+    email: mo@qdaria.com
+    affiliation: QDaria
+    orcid: 'https://orcid.org/0000-0000-0000-0000'
+identifiers:
+  - type: doi
+    value: 10.22541/au.176549133.31550916/v2
+    description: TechRxiv preprint (Version 2)
+  - type: doi
+    value: 10.5281/zenodo.17889778
+    description: Zenodo archive with code and data
+repository-code: 'https://github.com/QDaria/tqrc'
+url: 'https://qdaria.com/blog/tqrc-unitarity-echo-state/'
+abstract: >-
+  This paper establishes fundamental no-go results for Topological Quantum
+  Reservoir Computing (TQRC) using Fibonacci anyons. We prove that the unitary
+  nature of topological quantum evolution creates an irreconcilable tension
+  with the Echo State Property (ESP) essential for reservoir computing.
+  Our rigorous mathematical analysis demonstrates that Fibonacci anyonic
+  systems cannot satisfy ESP requirements, with profound implications for
+  the intersection of topological quantum computing and neuromorphic ML.
+keywords:
+  - topological quantum computing
+  - reservoir computing
+  - Fibonacci anyons
+  - echo state property
+  - quantum machine learning
+  - no-go theorem
+  - neuromorphic computing
+license: CC-BY-4.0
+version: '2.0.0'
+date-released: '2026-01-21'
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Houshmand
+      given-names: Daniel Mo
+      email: mo@qdaria.com
+      affiliation: QDaria
+  title: >-
+    Fundamental Limitations of Topological Quantum Reservoir Computing:
+    A No-Go Theorem for Fibonacci Anyonic Systems
+  year: 2026
+  journal: TechRxiv
+  doi: 10.22541/au.176549133.31550916/v2

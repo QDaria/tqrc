@@ -649,7 +649,7 @@ def fig14_summary_table():
     for i in range(1, 5):
         table[(i, 3)].set_facecolor('#f8d7da' if 'ESN wins' in data[i][3] else '#d4edda' if 'TQRC' in data[i][3] else '#fff3cd')
 
-    ax.set_title('TQRC vs Classical ESN: Honest Assessment', fontweight='bold', fontsize=11, y=0.95)
+    ax.set_title('TQRC vs Classical ESN: Performance Comparison', fontweight='bold', fontsize=11, y=0.95)
 
     plt.tight_layout()
     plt.savefig(os.path.join(FIG_DIR, 'fig14_summary_table.pdf'), bbox_inches='tight')
