@@ -268,7 +268,7 @@ Several prior works have explored quantum reservoir computing, though none have 
 
 \textbf{Quantum Kernel Methods and Expressibility:} An alternative QML paradigm uses quantum systems to implicitly compute kernel functions~\cite{Kubler2021,SchuldKilloran2022}. Kübler et al.~\cite{Kubler2021} proved that quantum kernel advantages require carefully structured problems; otherwise classical methods suffice. Sim et al.~\cite{Sim2019} quantified circuit expressibility via state-space coverage, showing that highly expressive circuits paradoxically suffer from trainability issues. Schuld and Killoran~\cite{SchuldKilloran2022} connected quantum feature spaces to expressibility bounds. Our results complement this by showing that even without variational training, TQRC faces fundamental limitations from unitarity constraints: the highly structured braid dynamics have limited expressibility compared to random circuits.
 
-\textbf{Large-Scale QRC:} Recent experimental advances have demonstrated QRC at larger scales. Kornjaca et al.~\cite{Kornjaca2024} demonstrated quantum reservoir learning with 108 qubits on an analog quantum computer, showing noise resilience across diverse tasks. Innocenti et al.~\cite{Innocenti2024} explored minimalistic few-atom QRC implementations. However, Sannia et al.~\cite{Sannia2025} identified exponential concentration phenomena that can hinder QRC performance, mitigated only through careful exploitation of Hamiltonian symmetries. These works underscore that scalability alone does not resolve the fundamental unitarity-ESP tension we identify; rather, successful QRC implementations invariably incorporate dissipative mechanisms.
+\textbf{Large-Scale QRC:} Recent experimental advances have demonstrated QRC at larger scales. Kornjaca et al.~\cite{Kornjaca2024} demonstrated quantum reservoir learning with 108 qubits on an analog quantum computer, showing noise resilience across diverse tasks. Innocenti et al.~\cite{Innocenti2025} explored minimalistic few-atom QRC implementations. However, Sannia et al.~\cite{Sannia2025} identified exponential concentration phenomena that can hinder QRC performance, mitigated only through careful exploitation of Hamiltonian symmetries. These works underscore that scalability alone does not resolve the fundamental unitarity-ESP tension we identify; rather, successful QRC implementations invariably incorporate dissipative mechanisms.
 
 None of these works have addressed topological quantum reservoir computing or the fundamental tension between topological protection and reservoir functionality that we identify.
 
@@ -912,7 +912,7 @@ Let $\mathcal{L}$ be a Lindbladian with unique steady state $\rho_{\text{ss}}$. 
 \begin{equation}
 D_{\text{tr}}(\rho_1(t), \rho_2(t)) \leq e^{-\lambda_{\text{gap}} t} D_{\text{tr}}(\rho_1(0), \rho_2(0)),
 \end{equation}
-where $\lambda_{\text{gap}} > 0$ is the spectral gap of $\mathcal{L}$~\cite{Attal2007}. Thus dissipative dynamics recover the ESP with convergence rate $\lambda_{\text{gap}}$.
+where $\lambda_{\text{gap}} > 0$ is the spectral gap of $\mathcal{L}$~\cite{Attal2006}. Thus dissipative dynamics recover the ESP with convergence rate $\lambda_{\text{gap}}$.
 \end{theorem}
 
 For amplitude damping toward ground state $|0\rangle$:
@@ -1350,7 +1350,7 @@ A.~S. Holevo, ``Bounds for the quantity of information transmitted by a quantum
   communication channel,'' \emph{Problems of Information Transmission}, vol.~9,
   no.~3, pp. 177--183, 1973.
 
-\bibitem{Attal2007}
+\bibitem{Attal2006}
 S.~Attal and Y.~Pautrat, ``From repeated to continuous quantum interactions,''
   \emph{Annales Henri Poincar{\'e}}, vol.~7, no.~1, pp. 59--104, 2006.
 
@@ -1373,7 +1373,7 @@ M.~Kornjaca, A.~Miessen, D.~Malz, S.~Polla, G.~Semeghini, J.~Carrasquilla,
 A.~Sannia, G.~L.~Giorgi, and R.~Zambrini, ``Exponential concentration and
   symmetries in quantum reservoir computing,'' \emph{arXiv preprint arXiv:2505.10062}, 2025.
 
-\bibitem{Innocenti2024}
+\bibitem{Innocenti2025}
 L.~Innocenti, S.~Lorenzo, I.~Ferraro, A.~Ferraro, and G.~M.~Palma,
   ``Practical few-atom quantum reservoir computing,''
   \emph{Phys. Rev. Research}, vol.~7, p.~023290, 2025.

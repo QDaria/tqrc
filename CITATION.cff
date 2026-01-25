@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: >-
-  Fundamental Limitations of Topological Quantum Reservoir Computing:
-  A No-Go Theorem for Fibonacci Anyonic Systems
+  The Fundamental Tension in Topological Quantum Reservoir Computing:
+  Why Unitarity Opposes the Echo State Property
 message: >-
   If you use this research, please cite it using the metadata from this file.
 type: software
@@ -37,8 +37,8 @@ keywords:
   - no-go theorem
   - neuromorphic computing
 license: CC-BY-4.0
-version: '2.0.0'
-date-released: '2026-01-21'
+version: '3.0.0'
+date-released: '2026-01-25'
 preferred-citation:
   type: article
   authors:
@@ -47,8 +47,8 @@ preferred-citation:
       email: mo@qdaria.com
       affiliation: QDaria
   title: >-
-    Fundamental Limitations of Topological Quantum Reservoir Computing:
-    A No-Go Theorem for Fibonacci Anyonic Systems
+    The Fundamental Tension in Topological Quantum Reservoir Computing:
+    Why Unitarity Opposes the Echo State Property
   year: 2026
   journal: TechRxiv
   doi: 10.22541/au.176549133.31550916/v2
